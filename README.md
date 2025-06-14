@@ -15,7 +15,7 @@ To get started with this project:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/santoshkumar187/Records.git
+   git clone https://github.com/santoshkumar187/Pay_Record_System.git
    ```
 2. Navigate to the project directory:
    ```bash
