@@ -19,7 +19,7 @@ To get started with this project:
    ```
 2. Navigate to the project directory:
    ```bash
-   cd Records
+   cd Pay_Record_System
    ```
 3. Follow setup instructions in the documentation or source files.
 
