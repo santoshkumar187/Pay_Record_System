@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit ATL Details</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f0fff0;
+  margin: 0;
+  padding: 20px;
+}
+
+.form-container {
+  background-color: #e8fbe8;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+form {
+  width: 100%;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  min-height: 80px;
+  resize: vertical;
+}
+
+.password-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  flex: 1;
+}
+
+.password-wrapper button {
+  margin-left: 5px;
+  padding: 6px 10px;
+  border: none;
+  background-color: #ccc;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.form-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-button:hover {
+  background-color: #003d82;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3);
+}
+
+.form-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.form-button:hover::before {
+  left: 100%;
+}
+
+.form-button:first-of-type {
+  margin-top: 20px;
+}
+
+/* Specific styles for the update, go-to-payment, and atl-records buttons */
+.update-button {
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  background-size: 200% 200%;
+  animation: gradientBG 3s ease infinite;
+}
+
+.update-button:hover {
+  background: linear-gradient(45deg, #0056b3, #007bff);
+  background-size: 200% 200%;
+  animation: gradientBG 3s ease infinite;
+}
+
+.update-button:active {
+  background: linear-gradient(45deg, #4da3ff, #66b3ff);
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(0, 86, 179, 0.2);
+}
+
+.go-to-payment-button {
+  background: linear-gradient(45deg, #28a745, #218838);
+  background-size: 200% 200%;
+  animation: gradientBG 3s ease infinite;
+}
+
+.go-to-payment-button:hover {
+  background: linear-gradient(45deg, #218838, #28a745);
+  background-size: 200% 200%;
+  animation: gradientBG 3s ease infinite;
+}
+
+.go-to-payment-button:active {
+  background: linear-gradient(45deg, #1e7e34, #218838);
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.2);
+}
+
+.atl-records-button {
+  background: linear-gradient(45deg, #6c757d, #5a6268);
+  background-size: 200% 200%;
+  animation: gradientBG 3s ease infinite;
+}
+
+.atl-records-button:hover {
+  background: linear-gradient(45deg, #5a6268, #6c757d);
+  background-size: 200% 200%;
+  animation: gradientBG 3s ease infinite;
+}
+
+.atl-records-button:active {
+  background: linear-gradient(45deg, #545b62, #5a6268);
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(108, 117, 125, 0.2);
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.vcomment-group {
+  margin-top: 50px; /* Adjust this value as needed */
+}
+
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Edit ATL Details</h2>
+    <form id="atlDetailsForm">
+      <input type="hidden" name="id" id="atlId">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>SCHOOL NAME</label>
+          <input type="text" name="school_name" value="">
+        </div>
+        <div class="form-group">
+          <label>Sanction no</label>
+          <input type="text" name="sanction_no" value="">
+        </div>
+        <div class="form-group">
+          <label>UDISE</label>
+          <input type="text" name="udise" value="">
+        </div>
+        <div class="form-group">
+          <label>Fund Date</label>
+          <input type="date" name="fund_date" value="">
+        </div>
+        <div class="form-group">
+          <label>Inauguration Date</label>
+          <input type="date" name="inauguration_date" value="">
+        </div>
+        <div class="form-group">
+          <label>Principal Name & Phone</label>
+          <input type="text" name="principal_name_phone">
+        </div>
+        <div class="form-group">
+          <label>ATL CODE</label>
+          <input type="text" name="atl_code" value="">
+        </div>
+        <div class="form-group password-group">
+          <label>ATL PSWD</label>
+          <div class="password-wrapper">
+            <input type="password" id="atlPwd" name="atl_pswd" value="">
+            <button type="button" onclick="togglePassword('atlPwd', this)">Show</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>GEM CODE</label>
+          <input type="text" name="gem_code">
+        </div>
+        <div class="form-group">
+          <label>Govt Email</label>
+          <input type="email" name="govt_email">
+        </div>
+        <div class="form-group">
+          <label>PFMS</label>
+          <input type="text" name="pfms" value="">
+        </div>
+        <div class="form-group">
+          <label>PFMS OP</label>
+          <input type="text" name="pfms_op">
+        </div>
+        <div class="form-group">
+          <label>PFMS AP</label>
+          <input type="text" name="pfms_ap">
+        </div>
+        <div class="form-group">
+          <label>ATL Incharge & Phone</label>
+          <input type="text" name="atl_incharge_phone">
+        </div>
+        <div class="form-group">
+          <label>DASHBRD PSWD</label>
+          <input type="text" name="dashbrd_pswd" value="16917005">
+        </div>
+        <div class="form-group">
+          <label>GEM PSWD</label>
+          <input type="text" name="gem_pswd">
+        </div>
+        <div class="form-group">
+          <label>Govt Mail PSWD</label>
+          <input type="text" name="govt_mail_pswd">
+        </div>
+        <div class="form-group">
+          <label>PFMS PSWD</label>
+          <input type="text" name="pfms_pswd">
+        </div>
+        <div class="form-group password-group">
+          <label>OP PSWD</label>
+          <div class="password-wrapper">
+            <input type="password" id="opPwd" name="op_pswd" value="">
+            <button type="button" onclick="togglePassword('opPwd', this)">Show</button>
+          </div>
+        </div>
+        <div class="form-group password-group">
+          <label>AP PSWD</label>
+          <div class="password-wrapper">
+            <input type="password" id="apPwd" name="ap_pswd" value="">
+            <button type="button" onclick="togglePassword('apPwd', this)">Show</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Reg Email</label>
+          <input type="email" name="reg_email" value="">
+        </div>
+        <div class="form-group">
+          <label>Reg Phone</label>
+          <input type="text" name="reg_phone" value="">
+        </div>
+        <div class="form-group">
+          <label>Bharatkosh</label>
+          <input type="text" name="bharatkosh" value="">
+        </div>
+        <div class="form-group password-group">
+          <label>Bkosh Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="bkoshPwd" name="bkosh_password" value="">
+            <button type="button" onclick="togglePassword('bkoshPwd', this)">Show</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>ATL vendor</label>
+          <input type="text" name="atl_vendor" value="VITVARA">
+        </div>
+        <div class="form-group vcomment-group">
+          <label>VComment</label>
+          <textarea name="vcomment"></textarea>
+        </div>
+      </div>
+      <button type="submit" class="form-button update-button">Update</button>
+    </form>
+
+    <a href="payment.html"><button class="form-button go-to-payment-button" style="margin-top: 10px;">Go To Payment</button></a>
+    <a href="atl.html"><button class="form-button atl-records-button" style="margin-top: 10px;">ATL Details Records</button></a>
+
+  </div>
+  <script>
+    function togglePassword(inputId, btn) {
+  const input = document.getElementById(inputId);
+  if (input.type === "password") {
+    input.type = "text";
+    btn.textContent = "Hide";
+  } else {
+    input.type = "password";
+    btn.textContent = "Show";
+  }
+}
+
+// Function to get URL parameters
+function getUrlParameter(name) {
+    name = name.replace(/[[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+    var results = regex.exec(window.location.href);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+const atlId = getUrlParameter('id');
+const form = document.getElementById('atlDetailsForm');
+
+if (atlId) {
+    // Fetch existing data for editing
+    document.getElementById('atlId').value = atlId;
+    fetch(`fetch_atl_details.php?id=${atlId}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.status === 'error') {
+                console.error('Error fetching ATL details for ID:', data.message);
+                alert('Error loading ATL details for editing: ' + data.message);
+                return;
+            }
+            if (data.length > 0) {
+                const record = data[0]; // Assuming only one record for the ID
+                // Populate form fields
+                for (const key in record) {
+                    const input = form.elements[key];
+                    if (input) {
+                        if (input.type === 'date') {
+                            input.value = record[key] && record[key] !== '0000-00-00' ? record[key] : '';
+                        } else {
+                            input.value = record[key] || '';
+                        }
+                    }
+                }
+                document.querySelector('.form-container h2').textContent = 'Edit ATL Details';
+                document.querySelector('button[type="submit"]').textContent = 'Update';
+            } else {
+                alert('ATL Record not found for editing.');
+            }
+        })
+        .catch(error => {
+            console.error('Failed to fetch ATL details for editing:', error);
+            alert('An error occurred while loading ATL details for editing.');
+        });
+}
+
+// Handle form submission for both add and edit
+document.getElementById('atlDetailsForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const formData = new FormData(this);
+  
+  const submitButton = this.querySelector('button[type="submit"]');
+  const originalText = submitButton.textContent;
+  submitButton.textContent = 'Updating...';
+  submitButton.disabled = true;
+  
+  fetch('process_atl_details.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    if (!response.ok) {
+      return response.json().then(errorData => {
+        throw new Error(errorData.message || 'Network response was not ok.');
+      }).catch(() => {
+        throw new Error('Network response was not ok and could not parse error details.');
+      });
+    }
+    return response.json();
+  })
+  .then(data => {
+    if(data.status === 'success') {
+      alert(data.message);
+      setTimeout(function() {
+        window.location.href = 'atl.html';
+      }, 100);
+    } else {
+      alert('Error: ' + data.message);
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert(error.message);
+  })
+  .finally(() => {
+    submitButton.textContent = originalText;
+    submitButton.disabled = false;
+  });
+});
+
+  </script>
+</body>
+</html>
