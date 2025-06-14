@@ -10,7 +10,7 @@ This repository, Payrecordssystem, is designed to store and manage various types
 
 - Organized codebase for maintainability and collaboration
 
-- project develop using html, CSS, JavaScript backend PHP and js for database MySQL Admin phpmyadmin for managing and storing data.
+- project developed using html, CSS, JavaScript backend PHP and js for database MySQL Admin phpmyadmin for managing and storing data.
 
 
 ## Getting Started
